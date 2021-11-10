@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ holds class Review"""
-from models.base_model import BaseModel
+from models.base_model import Base_model
 
 
-class Review(BaseModel):
+class Review(Base_model):
     """Representation of Review """
     place_id = ""
     user_id = ""
