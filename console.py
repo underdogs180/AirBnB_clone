@@ -131,15 +131,15 @@ class HBNBCommand(cmd.Cmd):
                             setattr(models.storage.all()[k], args[2], args[3])
                             models.storage.all()[k].save()
                         else:
-                            print("** value missing **")
+                            print("*** missing value ***")
                     else:
-                        print("** attribute name missing **")
+                        print("*** Attribute name missing ***")
                 else:
-                    print("** no instance found **")
+                    print("*** No instance found ***")
             else:
-                print("** instance id missing **")
+                print("*** Missing instance ID ***")
         else:
-            print("** class doesn't exist **")
+            print("*** Class doesn't exist ***")
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
