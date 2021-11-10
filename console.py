@@ -11,9 +11,9 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
-import shlex  # for splitting the line along spaces except in double quotes
+import shlex  
 
-classes = {"Amenity": Amenity, "Base_model": Base_model, "City": City,
+class_groups = {"Amenity": Amenity, "Base_model": Base_model, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
 
@@ -39,8 +39,8 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return False
-        if args[0] in classes:
-            instance = classes[args[0]]()
+        if args[0] in class_groups:
+            instance = class_groups[args[0]]()
         else:
             print("** class doesn't exist **")
             return False
@@ -53,7 +53,7 @@ class HBNBCommand(cmd.Cmd):
         if len(args) == 0:
             print("** class name missing **")
             return False
-        if args[0] in classes:
+        if args[0] in class_groups:
             if len(args) > 1:
                 key = args[0] + "." + args[1]
                 if key in models.storage.all():
@@ -67,10 +67,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_destroy(self, arg):
         """Deletes an instance based on the class and id"""
-        yargs = shlex.split(arg)
+        args = shlex.split(arg)
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] in classes:
+        elif args[0] in class_groups:
             if len(args) > 1:
                 key = args[0] + "." + args[1]
                 if key in models.storage.all():
@@ -93,7 +93,7 @@ class HBNBCommand(cmd.Cmd):
             print("[", end="")
             print(", ".join(obj_list), end="")
             print("]")
-        elif args[0] in classes:
+        elif args[0] in class_groups:
             for key in models.storage.all():
                 if args[0] in key:
                     obj_list.append(str(models.storage.all()[key]))
@@ -111,7 +111,7 @@ class HBNBCommand(cmd.Cmd):
         floats = ["latitude", "longitude"]
         if len(args) == 0:
             print("** class name missing **")
-        elif args[0] in classes:
+        elif args[0] in class_groups:
             if len(args) > 1:
                 k = args[0] + "." + args[1]
                 if k in models.storage.all():
