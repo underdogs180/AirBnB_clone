@@ -11,7 +11,7 @@ time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class Base_model:
-    """The Base_model class from which future classes will be derived"""
+    """The Base Model class for the console. Other future classes will be derived from this class"""
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
@@ -43,12 +43,12 @@ class Base_model:
 
     def to_dict(self):
         """returns a dictionary containing all keys/values of the instance"""
-        new_dict = self.__dict__.copy()
-        if "created_at" in new_dict:
-            new_dict["created_at"] = new_dict["created_at"].strftime(time)
-        if "updated_at" in new_dict:
-            new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
-        new_dict["__class__"] = self.__class__.__name__
-        return new_dict
+        newDict = self.__dict__.copy()
+        if "created_at" in newDict:
+            newDict["created_at"] = newDict["created_at"].strftime(time)
+        if "updated_at" in newDict:
+            newDict["updated_at"] = newDict["updated_at"].strftime(time)
+        newDict["__class__"] = self.__class__.__name__
+        return newDict
 
 
