@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains class BaseModel
+Contains class Base_model
 """
 
 from datetime import datetime
@@ -10,8 +10,8 @@ import uuid
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class BaseModel:
-    """The BaseModel class from which future classes will be derived"""
+class Base_model:
+    """The Base_model class from which future classes will be derived"""
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
@@ -31,7 +31,7 @@ class BaseModel:
             models.storage.save()
 
     def __str__(self):
-        """String representation of the BaseModel class"""
+        """String representation of the Base_model class"""
         return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id,
                                          self.__dict__)
 
