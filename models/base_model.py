@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains class BaseModel
+Contains class Base_model
 """
 
 from datetime import datetime
@@ -10,8 +10,8 @@ import uuid
 time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
-class BaseModel:
-    """The BaseModel class from which future classes will be derived"""
+class Base_model:
+    """The Base Model class for the console. Other future classes will be derived from this class"""
 
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
@@ -31,7 +31,7 @@ class BaseModel:
             models.storage.save()
 
     def __str__(self):
-        """String representation of the BaseModel class"""
+        """String representation of the Base_model class"""
         return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id,
                                          self.__dict__)
 
@@ -43,6 +43,7 @@ class BaseModel:
 
 def to_dict(self):
         """returns a dictionary containing all keys/values of the instance"""
+<<<<<<< HEAD
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
             new_dict["created_at"] = new_dict["created_at"].strftime(time)
@@ -50,3 +51,14 @@ def to_dict(self):
             new_dict["updated_at"] = new_dict["updated_at"].strftime(time)
         new_dict["__class__"] = self.__class__.__name__
         return new_dict
+=======
+        newDict = self.__dict__.copy()
+        if "created_at" in newDict:
+            newDict["created_at"] = newDict["created_at"].strftime(time)
+        if "updated_at" in newDict:
+            newDict["updated_at"] = newDict["updated_at"].strftime(time)
+        newDict["__class__"] = self.__class__.__name__
+        return newDict
+
+
+>>>>>>> 766e2014780af0744234d6324fa214ea30bbc39b
