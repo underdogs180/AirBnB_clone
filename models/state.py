@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ holds class State"""
-from models.base_model import Base_model
+from models.base_model import BaseModel
 
 
-class State(Base_model):
+class State(BaseModel):
     """Representation of state """
     name = ""
 

@@ -7,7 +7,7 @@ Contains the TestUserDocs classes
 from datetime import datetime
 import inspect
 from models import user
-from models.base_model import Base_model
+from models.base_model import BaseModel
 import pep8
 import unittest
 User = user.User
@@ -60,9 +60,9 @@ class TestUserDocs(unittest.TestCase):
 class TestUser(unittest.TestCase):
     """Test the User class"""
     def test_is_subclass(self):
-        """Test that User is a subclass of Base_model"""
+        """Test that User is a subclass of BaseModel"""
         user = User()
-        self.assertIsInstance(user, Base_model)
+        self.assertIsInstance(user, BaseModel)
         self.assertTrue(hasattr(user, "id"))
         self.assertTrue(hasattr(user, "created_at"))
         self.assertTrue(hasattr(user, "updated_at"))

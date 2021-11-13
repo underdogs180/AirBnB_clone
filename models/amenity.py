@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ holds class Amenity"""
-from models.base_model import Base_model
+from models.base_model import BaseModel
 
 
-class Amenity(Base_model):
+class Amenity(BaseModel):
     """Representation of Amenity """
     name = ""
 

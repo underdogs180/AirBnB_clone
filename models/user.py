@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ holds class User"""
-from models.base_model import Base_model
+from models.base_model import BaseModel
 
-class User(Base_model):
+class User(BaseModel):
     """User Representation """
     email = ""
     password = ""

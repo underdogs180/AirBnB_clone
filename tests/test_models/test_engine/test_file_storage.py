@@ -11,7 +11,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.amenity import Amenity
-from models.base_model import Base_model
+from models.base_model import BaseModel
 import inspect
 import json
 import os
@@ -19,7 +19,7 @@ import pep8
 import unittest
 
 FileStorage = file_storage.FileStorage
-classes = {"Amenity": Amenity, "Base_model": Base_model, "City": City,
+classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
 

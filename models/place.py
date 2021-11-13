@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 """ holds class Place"""
-from models.base_model import Base_model
+from models.base_model import BaseModel
 
 
-class Place(Base_model):
+class Place(BaseModel):
     """Representation of Place """
     city_id = ""
     user_id = ""

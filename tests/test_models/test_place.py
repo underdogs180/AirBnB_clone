@@ -6,7 +6,7 @@ Contains the TestPlaceDocs classes
 from datetime import datetime
 import inspect
 from models import place
-from models.base_model import Base_model
+from models.base_model import BaseModel
 import pep8
 import unittest
 Place = place.Place
@@ -59,9 +59,9 @@ class TestPlaceDocs(unittest.TestCase):
 class TestPlace(unittest.TestCase):
     """Test the Place class"""
     def test_is_subclass(self):
-        """Test that Place is a subclass of Base_model"""
+        """Test that Place is a subclass of BaseModel"""
         place = Place()
-        self.assertIsInstance(place, Base_model)
+        self.assertIsInstance(place, BaseModel)
         self.assertTrue(hasattr(place, "id"))
         self.assertTrue(hasattr(place, "created_at"))
         self.assertTrue(hasattr(place, "updated_at"))
