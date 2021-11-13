@@ -6,7 +6,7 @@ Contains the TestStateDocs classes
 from datetime import datetime
 import inspect
 from models import state
-from models.base_model import BaseModel
+from models.base_model import Base_model
 import pep8
 import unittest
 State = state.State
@@ -59,9 +59,9 @@ class TestStateDocs(unittest.TestCase):
 class TestState(unittest.TestCase):
     """Test the State class"""
     def test_is_subclass(self):
-        """Test that State is a subclass of BaseModel"""
+        """Test that State is a subclass of Base_model"""
         state = State()
-        self.assertIsInstance(state, BaseModel)
+        self.assertIsInstance(state, Base_model)
         self.assertTrue(hasattr(state, "id"))
         self.assertTrue(hasattr(state, "created_at"))
         self.assertTrue(hasattr(state, "updated_at"))
