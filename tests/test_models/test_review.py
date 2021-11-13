@@ -6,7 +6,7 @@ Contains the TestReviewDocs classes
 from datetime import datetime
 import inspect
 from models import review
-from models.base_model import BaseModel
+from models.base_model import Base_model
 import pep8
 import unittest
 Review = review.Review
@@ -59,9 +59,9 @@ class TestReviewDocs(unittest.TestCase):
 class TestReview(unittest.TestCase):
     """Test the Review class"""
     def test_is_subclass(self):
-        """Test if Review is a subclass of BaseModel"""
+        """Test if Review is a subclass of Base_model"""
         review = Review()
-        self.assertIsInstance(review, BaseModel)
+        self.assertIsInstance(review, Base_model)
         self.assertTrue(hasattr(review, "id"))
         self.assertTrue(hasattr(review, "created_at"))
         self.assertTrue(hasattr(review, "updated_at"))

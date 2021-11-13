@@ -6,7 +6,7 @@ Contains the TestCityDocs classes
 from datetime import datetime
 import inspect
 from models import city
-from models.base_model import BaseModel
+from models.base_model import Base_model
 import pep8
 import unittest
 City = city.City
@@ -59,9 +59,9 @@ class TestCityDocs(unittest.TestCase):
 class TestCity(unittest.TestCase):
     """Test the City class"""
     def test_is_subclass(self):
-        """Test that City is a subclass of BaseModel"""
+        """Test that City is a subclass of Base_model"""
         city = City()
-        self.assertIsInstance(city, BaseModel)
+        self.assertIsInstance(city, Base_model)
         self.assertTrue(hasattr(city, "id"))
         self.assertTrue(hasattr(city, "created_at"))
         self.assertTrue(hasattr(city, "updated_at"))
