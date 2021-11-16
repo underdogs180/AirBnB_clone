@@ -11,8 +11,6 @@ time = "%Y-%m-%dT%H:%M:%S.%f"
 
 
 class BaseModel:
-    """The Base Model class for the console. Other future classes will be derived from this class"""
-
     def __init__(self, *args, **kwargs):
         """Initialization of the base model"""
         if kwargs:
@@ -40,8 +38,7 @@ class BaseModel:
         self.updated_at = datetime.now()
         models.storage.save()
 
-
-def to_dict(self):
+    def to_dict(self):
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
         if "created_at" in new_dict:
