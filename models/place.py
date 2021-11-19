@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-""" holds class Place"""
+"""`Place` class that inherits from `BaseModel`
+"""
+
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Representation of Place """
+    """Inherits from `BaseModel to create Place"""
     city_id = ""
     user_id = ""
     name = ""
@@ -16,7 +18,3 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
-
-    def __init__(self, *args, **kwargs):
-        """Initializes Place"""
-        super().__init__(*args, **kwargs)
