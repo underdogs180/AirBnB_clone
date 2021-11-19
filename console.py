@@ -63,42 +63,42 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print(obj_dict[tokens[0] + "." + tokens[1]])
 
-     def do_destroy(self, arg):
-         """Deletes an instance based on the class name"""
-         obj_dict = models.storage.all()
+    def do_destroy(self, arg):
+        """Deletes an instance based on the class name"""
+        obj_dict = models.storage.all()
 
-         if len(arg) == 0:
+        if len(arg) == 0:
              print("** class name is missing **")
-         else:
-             tokens = arg.split()
+        else:
+            tokens = arg.split()
 
-             if tokens[0] not in HBNBCommand.__my_classes:
-                 print("** class doesn't exist **")
-             elif len(tokens) == 1:
-                 print("** instance id missing **")
-             elif (tokens[0] + '.' + tokens[1]) not in obj_dict:
-                 print("** no instance found **")
-             else:
-                 del obj_dict[tokens[0] + '.' + tokens[1]]
-                 models.storage.save()
+            if tokens[0] not in HBNBCommand.__my_classes:
+                print("** class doesn't exist **")
+            elif len(tokens) == 1:
+                print("** instance id missing **")
+            elif (tokens[0] + '.' + tokens[1]) not in obj_dict:
+                print("** no instance found **")
+            else:
+                del obj_dict[tokens[0] + '.' + tokens[1]]
+                models.storage.save()
 
-     def do_all(self, arg):
-         """Prints all string representation of all instances
-         based or not on the classe name
+    def do_all(self, arg):
+        """Prints all string representation of all instances
+        based or not on the classe name
 
-         Usage: `$ all <class name>`
-         """
-         obj_dict = models.storage.all()
-         selected = []
-         if len(arg) != 0:
-             if arg not in HBNBCommand.__my_classes:
-                 print("** class doesn't exist **")
-             else:
-                 for each in obj_dict.values():
-                     if arg == each.__class__.__name__:
-                         selected.append(each.__str__())
-                 print(selected)
-         else:
+        Usage: `$ all <class name>`
+        """
+        obj_dict = models.storage.all()
+        selected = []
+        if len(arg) != 0:
+            if arg not in HBNBCommand.__my_classes:
+                print("** class doesn't exist **")
+            else:
+                for each in obj_dict.values():
+                    if arg == each.__class__.__name__:
+                        selected.append(each.__str__())
+                print(selected)
+        else:
               for each in obj_dict.values():
                   selected.append(each.__str__())
               print(selected.__str__())
