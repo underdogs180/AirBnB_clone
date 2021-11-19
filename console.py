@@ -68,7 +68,7 @@ class HBNBCommand(cmd.Cmd):
         obj_dict = models.storage.all()
 
         if len(arg) == 0:
-             print("** class name is missing **")
+            print("** class name is missing **")
         else:
             tokens = arg.split()
 
@@ -99,9 +99,9 @@ class HBNBCommand(cmd.Cmd):
                         selected.append(each.__str__())
                 print(selected)
         else:
-              for each in obj_dict.values():
-                  selected.append(each.__str__())
-              print(selected.__str__())
+            for each in obj_dict.values():
+                selected.append(each.__str__())
+            print(selected.__str__())
 
     def do_update(self, arg):
         """Updates an instance based on the class name and id
