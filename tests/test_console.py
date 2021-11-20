@@ -82,66 +82,66 @@ class TestHBNBCommand(unittest.TestCase):
             # region The destroy command
             # endregion
             # region The all command
-                # invalid class name
-                clear_stream(cout)
-                cons.onecmd('all Base')
-                self.assertEqual(cout.getvalue(), "** class doesn't exist **\n")
-                clear_stream(cout)
-                cons.onecmd('all base')
-                self.assertEqual(cout.getvalue(), "** class doesn't exist **\n")
-                # valid class name
-                clear_stream(cout)
-                cons.onecmd('create BaseModel')
-                mdl_id = cout.getvalue().strip()
-                mdl_sid = 'BaseModel.{}'.format(mdl_id)
-                clear_stream(cout)
-                cons.onecmd('create Amenity')
-                mdl_id1 = cout.getvalue().strip()
-                mdl_sid1 = 'Amenity.{}'.format(mdl_id1)
-                self.assertTrue(mdl_sid in storage.all().keys())
-                self.assertTrue(mdl_sid1 in storage.all().keys())
-                clear_stream(cout)
-                cons.onecmd('all BaseModel')
-                self.assertIn('[BaseModel] ({})'.format(mdl_id), cout.getvalue())
-                self.assertNotIn('[Amenity] ({})'.format(mdl_id1), cout.getvalue())
-                clear_stream(cout)
-                cons.onecmd('all')
-                self.assertIn('[BaseModel] ({})'.format(mdl_id), cout.getvalue())
-                self.assertIn('[Amenity] ({})'.format(mdl_id1), cout.getvalue())
+            # invalid class name
+            clear_stream(cout)
+            cons.onecmd('all Base')
+            self.assertEqual(cout.getvalue(), "** class doesn't exist **\n")
+            clear_stream(cout)
+            cons.onecmd('all base')
+            self.assertEqual(cout.getvalue(), "** class doesn't exist **\n")
+            # valid class name
+            clear_stream(cout)
+            cons.onecmd('create BaseModel')
+            mdl_id = cout.getvalue().strip()
+            mdl_sid = 'BaseModel.{}'.format(mdl_id)
+            clear_stream(cout)
+            cons.onecmd('create Amenity')
+            mdl_id1 = cout.getvalue().strip()
+            mdl_sid1 = 'Amenity.{}'.format(mdl_id1)
+            self.assertTrue(mdl_sid in storage.all().keys())
+            self.assertTrue(mdl_sid1 in storage.all().keys())
+            clear_stream(cout)
+            cons.onecmd('all BaseModel')
+            self.assertIn('[BaseModel] ({})'.format(mdl_id), cout.getvalue())
+            self.assertNotIn('[Amenity] ({})'.format(mdl_id1), cout.getvalue())
+            clear_stream(cout)
+            cons.onecmd('all')
+            self.assertIn('[BaseModel] ({})'.format(mdl_id), cout.getvalue())
+            self.assertIn('[Amenity] ({})'.format(mdl_id1), cout.getvalue())
             # endregion
             # region The update command
-                # missing instance id
-                clear_stream(cout)
-                cons.onecmd('update BaseModel')
-                self.assertEqual(cout.getvalue(), "** instance id missing **\n")
-                # invalid instance id
-                clear_stream(cout)
-                cons.onecmd('update BaseModel 49faff9a-451f-87b6-910505c55907')
-                self.assertEqual(cout.getvalue(), "** no instance found **\n")
-                # missing attribute name
-                clear_stream(cout)
-                cons.onecmd('create BaseModel')
-                mdl_id = cout.getvalue().strip()
-                clear_stream(cout)
-                cons.onecmd('update BaseModel {}'.format(mdl_id))
-                self.assertEqual(cout.getvalue(), "** attribute name missing **\n")
-                # missing attribute value
-                clear_stream(cout)
-                cons.onecmd('update BaseModel {} first_name'.format(mdl_id))
-                self.assertEqual(cout.getvalue(), "** value missing **\n")
-                # missing attribute value
-                clear_stream(cout)
-                if os.path.isfile('file.json'):
-                    os.unlink('file.json')
-                self.assertFalse(os.path.isfile('file.json'))
-                cons.onecmd('update BaseModel {} first_name Chris'.format(mdl_id))
-                mdl_sid = 'BaseModel.{}'.format(mdl_id)
-                self.assertTrue(mdl_sid in storage.all().keys())
-                self.assertTrue(os.path.isfile('file.json'))
-                self.assertTrue(hasattr(storage.all()[mdl_sid], 'first_name'))
-                self.assertEqual(
-                    getattr(storage.all()[mdl_sid], 'first_name', ''),
-                    'Chris'
+            # missing instance id
+            clear_stream(cout)
+            cons.onecmd('update BaseModel')
+            self.assertEqual(cout.getvalue(), "** instance id missing **\n")
+            # invalid instance id
+            clear_stream(cout)
+            cons.onecmd('update BaseModel 49faff9a-451f-87b6-910505c55907')
+            self.assertEqual(cout.getvalue(), "** no instance found **\n")
+            # missing attribute name
+            clear_stream(cout)
+            cons.onecmd('create BaseModel')
+            mdl_id = cout.getvalue().strip()
+            clear_stream(cout)
+            cons.onecmd('update BaseModel {}'.format(mdl_id))
+            self.assertEqual(cout.getvalue(), "** attribute name missing **\n")
+            # missing attribute value
+            clear_stream(cout)
+            cons.onecmd('update BaseModel {} first_name'.format(mdl_id))
+            self.assertEqual(cout.getvalue(), "** value missing **\n")
+            # missing attribute value
+            clear_stream(cout)
+            if os.path.isfile('file.json'):
+                os.unlink('file.json')
+            self.assertFalse(os.path.isfile('file.json'))
+            cons.onecmd('update BaseModel {} first_name Chris'.format(mdl_id))
+            mdl_sid = 'BaseModel.{}'.format(mdl_id)
+            self.assertTrue(mdl_sid in storage.all().keys())
+            self.assertTrue(os.path.isfile('file.json'))
+            self.assertTrue(hasattr(storage.all()[mdl_sid], 'first_name'))
+            self.assertEqual(
+                getattr(storage.all()[mdl_sid], 'first_name', ''),
+                'Chris'
                 )
             # endregion
 
@@ -166,7 +166,8 @@ class TestHBNBCommand(unittest.TestCase):
                 self.assertIn('[User] ({})'.format(mdl_id), cout.getvalue())
                 # updating a User instance
                 clear_stream(cout)
-                cons.onecmd('update User {} first_name Akpanoko'.format(mdl_id))
+                cons.onecmd
+                ('update User {} first_name Akpanoko'.format(mdl_id))
                 cons.onecmd('show User {}'.format(mdl_id))
                 self.assertIn(mdl_id, cout.getvalue())
                 self.assertIn(
@@ -188,10 +189,10 @@ class TestHBNBCommand(unittest.TestCase):
                 # create a sample object and show it
                 cons.onecmd('create City')
                 mdl_id = cout.getvalue().strip()
-                 clear_stream(cout)
-                 cmd_line = cons.precmd('City.all()'.format(mdl_id))
-                 cons.onecmd(cmd_line)
-                 self.assertIn(mdl_id, cout.getvalue())
+                clear_stream(cout)
+                cmd_line = cons.precmd('City.all()'.format(mdl_id))
+                cons.onecmd(cmd_line)
+                self.assertIn(mdl_id, cout.getvalue())
 
         def test_class_count(self):
             """Tests the ClassName.count() feature.
@@ -211,33 +212,33 @@ class TestHBNBCommand(unittest.TestCase):
                 self.assertEqual(cout.getvalue(), "2\n")
                 self.assertTrue(int(cout.getvalue()) >= 0)
 
-         def test_class_show(self):
-             """Tests the ClassName.show(id) feature.
-             """
-             with patch('sys.stdout', new=StringIO()) as cout:
-                 cons = HBNBCommand()
-                 # create a sample object and show it
-                 cons.onecmd('create City')
-                 mdl_id = cout.getvalue().strip()
-                 clear_stream(cout)
-                 cmd_line = cons.precmd('City.show({})'.format(mdl_id))
-                 cons.onecmd(cmd_line)
-                 self.assertIn(mdl_id, cout.getvalue())
-                 
-         def test_class_destroy(self):
-             """Tests the ClassName.destroy(id) feature.
-             """
-             with patch('sys.stdout', new=StringIO()) as cout:
-                 cons = HBNBCommand()
-                 # create a sample object and destroy it
-                 cons.onecmd('create City')
-                 mdl_id = cout.getvalue().strip()
-                 clear_stream(cout)
-                 cmd_line = cons.precmd('City.destroy({})'.format(mdl_id))
-                 cons.onecmd(cmd_line)
-                 clear_stream(cout)
-                 cons.onecmd('show City {}'.format(mdl_id))
-                 self.assertEqual(cout.getvalue(), "** no instance found **\n")
+        def test_class_show(self):
+            """Tests the ClassName.show(id) feature.
+            """
+            with patch('sys.stdout', new=StringIO()) as cout:
+                cons = HBNBCommand()
+                # create a sample object and show it
+                cons.onecmd('create City')
+                mdl_id = cout.getvalue().strip()
+                clear_stream(cout)
+                cmd_line = cons.precmd('City.show({})'.format(mdl_id))
+                cons.onecmd(cmd_line)
+                self.assertIn(mdl_id, cout.getvalue())
+
+        def test_class_destroy(self):
+            """Tests the ClassName.destroy(id) feature.
+            """
+            with patch('sys.stdout', new=StringIO()) as cout:
+                cons = HBNBCommand()
+                # create a sample object and destroy it
+                cons.onecmd('create City')
+                mdl_id = cout.getvalue().strip()
+                clear_stream(cout)
+                cmd_line = cons.precmd('City.destroy({})'.format(mdl_id))
+                cons.onecmd(cmd_line)
+                clear_stream(cout)
+                cons.onecmd('show City {}'.format(mdl_id))
+                self.assertEqual(cout.getvalue(), "** no instance found **\n")
 
         def test_class_update_0(self):
             """Tests the ClassName.update(id, attr_name, attr_value) feature.
